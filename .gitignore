@@ -1,0 +1,8 @@
+cpp/CMakeFiles/
+cpp/cmake_install.cmake
+cpp/CMakeCache.txt
+cpp/Makefile
+.vscode
+build
+**/*.o
+**/*.a

@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+	/*
+	argv[1]: path of file containing paths to object configurations, including colour, movement rules and path to STL file
+	argv[2]: path of file containing general configs (lighting, lighting movement, camera, camera movement, length, fps, etc.)
+	argv[3]: path to save rendered video to
+	*/
+	if (argc != 4)
+	{
+		cout << "invalud argument count" << endl;
+	}
+	Objects objects = load_objects(argv[1]);
+	Config config = load_config(argv[2]);
+	Renderer renderer = load_renderer(&objects, config);
+	Display display = load_display(config);
+	for (int i = 0; i < config.num_frames; i++)
+	{
+		Image image = renderer.step();
+		display.update(image);
+	}
+	display.save(argv[3])
+	return 0;
+}
