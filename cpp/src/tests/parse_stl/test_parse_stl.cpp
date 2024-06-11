@@ -1,12 +1,17 @@
 #include <iostream>
 #include <fmt/core.h>
 #include <lib/parse_stl.hpp>
+#include <lib/utils/result.hpp>
 
 using namespace std;
 
 int main (int argc, char* argv[]) {
+  /*
+  //*ARGS:
+  1. path to file from current working directory
+  */
   if (argc <= 1) {
-    cout << "Provide at least one file path" << endl;
+    result::panic("Invalid number of arguments. Args:\n1. path to file from current working directory", __PRETTY_FUNCTION__);
     return 0;
   }
   for (int i = 1; i < argc; i++) {

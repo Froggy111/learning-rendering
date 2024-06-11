@@ -1,3 +1,6 @@
+#ifndef PARSE_STL_HPP
+#define PARSE_STL_HPP
+
 #include <vector>
 #include <array>
 #include <cstdint>
@@ -22,3 +25,5 @@ namespace parse_stl {
 
   result::Result<ParsedSTL> parse_stl(std::string file_path);
 }
+
+#endif
